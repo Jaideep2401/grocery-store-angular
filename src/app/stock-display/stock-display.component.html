@@ -1,0 +1,30 @@
+<div class="container">
+  <div>
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name or category" class="search-bar">
+  </div>
+
+  <!-- Price Range Filters -->
+  <div class="price-filters">
+    <label for="minPrice">Min Price: </label>
+    <input type="number" [(ngModel)]="minPrice" placeholder="Min Price" class="price-input">
+    
+    <label for="maxPrice">Max Price: </label>
+    <input type="number" [(ngModel)]="maxPrice" placeholder="Max Price" class="price-input">
+  </div>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let item of filteredStock()">
+      <img [src]="item.image" alt="{{ item.title }}" />
+      <div>
+        <h3>{{ item.title }}</h3>
+        <p>Category: {{ item.category }}</p>
+        <p>Price: ${{ item.price }}</p>
+      </div>
+      <button class="btn" (click)="addToCart(item)">Add to Cart</button>
+    </div>
+  
+    <div *ngIf="filteredStock().length === 0 && searchTerm" class="error-message">
+      No items found.
+    </div>
+  </div>
+</div>

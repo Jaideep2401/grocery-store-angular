@@ -1,0 +1,18 @@
+<!-- navbar.component.html -->
+<header class="navbar">
+  <div class="navbar-brand">
+    <h1>Grocery Store</h1>
+  </div>
+  <nav class="navbar-links">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/stock" class="nav-link">Stock</a></li>
+      <li><a routerLink="/sales" class="nav-link">Sales</a></li>
+      <li><a routerLink="/cart" class="nav-link">Cart</a></li>
+    </ul>
+  </nav>
+  <div class="navbar-cart">
+    <span class="cart-icon" routerLink="/cart">🛒</span>
+    <span class="cart-count">{{ cartCount }}</span>
+  </div>
+</header>
